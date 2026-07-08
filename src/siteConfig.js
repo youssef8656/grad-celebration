@@ -55,14 +55,14 @@ const siteConfig = {
   ],
 
   gallery: [
-    { src: '/public/gallary/1 (138).jpg', alt: 'Graduation cap toss' },
-    { src: '/public/gallary/1 (139).jpg', alt: 'Campus lawn' },
-    { src: '/public/gallary/1 (140).jpg', alt: 'Graduation ceremony' },
-    { src: '/public/gallary/1 (305).jpg', alt: 'Friends celebrating' },
-    { src: '/public/gallary/1 (306).jpg', alt: 'University library' },
-    { src: '/public/gallary/1 (353).jpg', alt: 'Diploma close up' },
-    { src: '/public/gallary/1 (138).jpg', alt: 'Graduation portrait' },
-    { src: '/public/gallary/1 (138).jpg', alt: 'Campus building' },
+    { src: '/gallary/1 (138).jpg', alt: 'Graduation cap toss' },
+    { src: '/gallary/1 (139).jpg', alt: 'Campus lawn' },
+    { src: '/gallary/1 (140).jpg', alt: 'Graduation ceremony' },
+    { src: '/gallary/1 (305).jpg', alt: 'Friends celebrating' },
+    { src: '/gallary/1 (306).jpg', alt: 'University library' },
+    { src: '/gallary/1 (353).jpg', alt: 'Diploma close up' },
+    { src: '/gallary/1 (138).jpg', alt: 'Graduation portrait' },
+    { src: '/gallary/1 (138).jpg', alt: 'Campus building' },
   ],
 
   social: {
