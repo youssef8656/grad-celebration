@@ -28,6 +28,7 @@ export default function Gallery() {
             className="relative w-full block break-inside-avoid rounded-2xl overflow-hidden group focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
           >
             <img
+              loading="lazy"
               src={img.src}
               alt={img.alt}
               loading="lazy"
