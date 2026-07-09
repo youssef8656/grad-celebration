@@ -52,10 +52,10 @@ const siteConfig = {
   ],
 
   memories: [
-    { name: 'Jordan P.', role: 'Roommate, Freshman Year', quote: 'The only person I know who could debug code and console a heartbroken friend in the same five minutes.' },
-    { name: 'Priya S.', role: 'Study Group', quote: 'Every all-nighter in the library felt survivable because you were there arguing about semicolons.' },
-    { name: 'Marcus T.', role: 'Internship Mentor', quote: 'Started as my intern, left as someone I\'d hire again in a heartbeat.' },
-    { name: 'Elena R.', role: 'Childhood Friend', quote: 'From science fair volcanoes to actual software — I always knew you\'d build something real.' },
+    { name: 'Jordan P.', role: 'Roommate, Freshman Year', quote: 'The best part of every trip wasn’t the destination—it was being there together.' },
+    { name: 'Marcus T.', role: 'Halfway to graduation, we realized that the journey itself had already become the memory.' },
+    { name: 'Priya S.', role: 'Study Group', quote: 'Between lectures and long conversations on campus, we built memories that will last a lifetime.' },
+    { name: 'Elena R.', role: 'That one trip reminded us that the best way to celebrate the finish line is to enjoy the road together.' },
   ],
 
   gallery: [
