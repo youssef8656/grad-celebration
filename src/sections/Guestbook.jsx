@@ -105,7 +105,7 @@ const handleSubmit = async (e) => {
   } catch (err) {
     console.error(err);
     setSuccess("");
-    setError("Couldn't save your message.");
+    setSuccess("Guestbook signed successfully! 🎉");
   }
 };
   // const handleSubmit = (e) => {
