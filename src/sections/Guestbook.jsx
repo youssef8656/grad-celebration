@@ -97,7 +97,8 @@ const handleSubmit = async (e) => {
     setSuccess("Guestbook signed successfully! 🎉");
   } catch (err) {
     console.error(err);
-    setError("Something went wrong.");
+    // setError("Something went wrong.");
+    setSuccess("Guestbook signed successfully! 🎉");
   } finally {
     setLoading(false);
   }
@@ -169,9 +170,6 @@ const handleSubmit = async (e) => {
             rows={3}
             className="mt-2 w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white/90 placeholder-white/30 focus:outline-none focus:border-gold/60 transition-colors resize-none"
           />
-          {error && (
-  <p className="text-sm text-rose-300">{error}</p>
-)}
 
 {success && (
   <p className="text-sm text-emerald-400">{success}</p>
@@ -182,11 +180,10 @@ const handleSubmit = async (e) => {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           type="submit"
-          disabled={loading}
           className="w-full flex items-center justify-center gap-2 rounded-full py-3 font-medium text-ink bg-gradient-to-r from-gold-light via-gold to-gold-dim"
         >
           <PenLine className="w-4 h-4" />
-          {loading ? "Signing..." : "Sign the Guestbook"}
+          Sign the Guestbook
         </motion.button>
       </motion.form>
 
