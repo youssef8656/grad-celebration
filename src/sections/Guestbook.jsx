@@ -1,9 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { PenLine, MessageCircleHeart } from 'lucide-react'
 import SectionHeader from '../components/SectionHeader.jsx'
 // import useLocalStorage from '../hooks/useLocalStorage.js'
-import { useEffect, useState } from 'react'
 
 
 const API_URL = "https://script.google.com/macros/s/AKfycbzqetyyomqmMjJjlAiqEBSdVtvQJFO-IOo_Qq4xzbUyHTZ-Bpmsb6fjh5IewNA5lAW1jw/exec";
@@ -75,13 +74,6 @@ const handleSubmit = async (e) => {
       }),
     });
 
-            // Clear the form
-    setForm({
-      name: "",
-      to: "",
-      message: "",
-    });
-
     // Make sure the POST request succeeded
     if (!response.ok) {
       throw new Error("Failed to save message");
@@ -89,7 +81,12 @@ const handleSubmit = async (e) => {
 
     await response.text();
 
-
+    // Clear the form
+    setForm({
+      name: "",
+      to: "",
+      message: "",
+    });
 
     // Show success immediately
     setSuccess("Guestbook signed successfully! 🎉");
