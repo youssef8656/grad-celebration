@@ -6,7 +6,7 @@ import siteConfig from '../siteConfig.js'
 const ITEMS = (e) => [
   { icon: CalendarDays, label: 'Date', value: e.dateLabel },
   { icon: Clock, label: 'Time', value: e.time },
-  { icon: MapPin, label: 'Venue', value: `${e.venue}, ${e.address}` },
+  { icon: MapPin, label: 'Venue', value: `${e.venue} ${e.address}` },
 ]
 
 export default function EventDetails() {

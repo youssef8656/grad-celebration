@@ -10,7 +10,7 @@ const siteConfig = {
     dateLabel: 'Friday, July 24nd, 2026',
     time: '4:00 PM — Reception · 5:00 PM — Begining',
     venue: 'El-Minya Government Hall',
-    address: 'dont know',
+    address: '',
   },
 
   rsvpDeadline: '2026-07-24',
@@ -23,13 +23,18 @@ const siteConfig = {
     },
     {
       year: '2023',
-      title: 'First Internship',
-      desc: 'Trade lecture halls for a real desk, real deadlines, and the humbling discovery of how much there was left to learn.',
+      title: 'Finding Our Place',
+      desc: 'The unfamiliar became routine, friendships grew stronger, and campus slowly began to feel like home.',
     },
     {
       year: '2024',
-      title: 'Major Projects',
-      desc: 'Late nights, whiteboards covered in diagrams, and the projects that finally made the theory feel real.',
+      title: 'Semi Senior',
+      desc: "Halfway to the finish line, already proud of how far we've come.",
+    },
+    {
+      year: '2025',
+      title: 'Almost There',
+      desc: 'The finish line came into view, and every challenge reminded us how much we had grown.',
     },
     {
       year: '2026',
@@ -42,8 +47,8 @@ const siteConfig = {
     { time: '4:00 PM', title: 'Arrival', desc: 'Arrival early and take some photos.' },
     { time: '5:00 PM', title: 'Guest Arrival', desc: 'A seated dinner beneath the string lights.' },
     { time: '5:30 PM', title: 'begin the party', desc: 'A few words — some earned, some embarrassing.' },
-    { time: '9:00 PM', title: 'Photos', desc: 'The wall of frames — bring your best angles.' },
-    { time: '9:30 PM', title: 'leave', desc: 'Thanks for being there with us.' },
+    { time: '9:30 PM', title: 'Photos', desc: 'The wall of frames — bring your best angles.' },
+    { time: '10:00 PM', title: 'leave', desc: 'Thanks for being there with us.' },
   ],
 
   memories: [

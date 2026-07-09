@@ -13,10 +13,10 @@ export default function Footer() {
       >
         <GraduationCap className="w-8 h-8 text-gold mx-auto mb-5" strokeWidth={1.25} />
         <p className="font-script italic text-2xl text-white/80 max-w-md mx-auto">
-          Thank you for being part of my story, and for celebrating this chapter with me.
+          Thank you for being part of our story, and for celebrating this chapter with us.
         </p>
 
-        <div className="flex items-center justify-center gap-5 mt-8">
+        {/* <div className="flex items-center justify-center gap-5 mt-8">
           <a
             href={siteConfig.social.instagram}
             className="w-10 h-10 rounded-full glass flex items-center justify-center text-white/60 hover:text-gold hover:border-gold/40 transition-colors"
@@ -38,7 +38,7 @@ export default function Footer() {
           >
             <Linkedin className="w-4 h-4" />
           </a>
-        </div>
+        </div> */}
 
         <div className="divider-gold w-16 mx-auto my-8" />
 
