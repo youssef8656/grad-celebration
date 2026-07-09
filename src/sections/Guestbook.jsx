@@ -75,6 +75,13 @@ const handleSubmit = async (e) => {
       }),
     });
 
+            // Clear the form
+    setForm({
+      name: "",
+      to: "",
+      message: "",
+    });
+
     // Make sure the POST request succeeded
     if (!response.ok) {
       throw new Error("Failed to save message");
@@ -82,12 +89,7 @@ const handleSubmit = async (e) => {
 
     await response.text();
 
-        // Clear the form
-    setForm({
-      name: "",
-      to: "",
-      message: "",
-    });
+
 
     // Show success immediately
     setSuccess("Guestbook signed successfully! 🎉");
