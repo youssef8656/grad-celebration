@@ -34,6 +34,7 @@ export default function Guestbook() {
   const [form, setForm] = useState({ name: '', to: '', message: '' })
   const [error, setError] = useState('')
   const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
 
 
   useEffect(() => {
@@ -52,17 +53,17 @@ export default function Guestbook() {
 
 
 const handleSubmit = async (e) => {
+  e.preventDefault();
 
   setError("");
   setSuccess("");
-  e.preventDefault();
 
   if (!form.name.trim() || !form.to || !form.message.trim()) {
     setError("Please fill in all fields.");
     return;
   }
 
-  setError("");
+  setLoading(true);
 
   try {
     const response = await fetch(API_URL, {
@@ -77,33 +78,30 @@ const handleSubmit = async (e) => {
       }),
     });
 
-    // Wait for Google to save the message
-  await response.text();
+    await response.text();
 
-  // Reload all entries
-  const res = await fetch(API_URL);
-  const data = await res.json();
-  setEntries(data);
+    // Optional: wait a second before fetching
+    await new Promise(resolve => setTimeout(resolve, 1000));
 
-  // Clear the form
-  setForm({
-    name: "",
-    to: "",
-    message: "",
-  });
+    const res = await fetch(API_URL);
+    const data = await res.json();
 
-  // Show success
-  setError("");
+    setEntries(data);
 
-  // Optional success message
-  setSuccess("Guestbook signed successfully! 🎉");
+    setForm({
+      name: "",
+      to: "",
+      message: "",
+    });
+
+    setSuccess("Guestbook signed successfully! 🎉");
   } catch (err) {
-  console.error(err);
-  setSuccess("");
-  setError("Something went wrong.");
-}
+    console.error(err);
+    setError("Something went wrong.");
+  } finally {
+    setLoading(false);
+  }
 };
-
 
   // const handleSubmit = (e) => {
   //   e.preventDefault()
@@ -184,10 +182,11 @@ const handleSubmit = async (e) => {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           type="submit"
+          disabled={loading}
           className="w-full flex items-center justify-center gap-2 rounded-full py-3 font-medium text-ink bg-gradient-to-r from-gold-light via-gold to-gold-dim"
         >
           <PenLine className="w-4 h-4" />
-          Sign the Guestbook
+          {loading ? "Signing..." : "Sign the Guestbook"}
         </motion.button>
       </motion.form>
 
