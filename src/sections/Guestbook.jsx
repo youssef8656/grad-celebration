@@ -104,7 +104,6 @@ const handleSubmit = async (e) => {
 
   } catch (err) {
     console.error(err);
-    setSuccess("");
     setSuccess("Guestbook signed successfully! 🎉");
   }
 };
