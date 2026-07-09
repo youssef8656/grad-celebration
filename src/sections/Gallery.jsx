@@ -7,6 +7,7 @@ import siteConfig from '../siteConfig.js'
 export default function Gallery() {
   const [activeIndex, setActiveIndex] = useState(null)
   const images = siteConfig.gallery
+  const vedios = siteConfig.vedios
 
   const close = () => setActiveIndex(null)
   const next = () => setActiveIndex((i) => (i + 1) % images.length)
@@ -40,6 +41,9 @@ export default function Gallery() {
           </motion.button>
         ))}
       </div>
+
+
+
 
       <AnimatePresence>
         {activeIndex !== null && (
@@ -90,6 +94,26 @@ export default function Gallery() {
           </motion.div>
         )}
       </AnimatePresence>
+      <div className="mt-24">
+  <h3 className="text-2xl font-semibold text-center mb-8 section-eyebrow font-big">
+    Videos
+  </h3>
+
+  <div className="flex">
+    {vedios.map((video) => (
+      <video
+        key={video.src}
+        controls
+        poster={video.thumbnail}
+        className="w-phone rounded-2xl"
+      >
+        <source src={video.src} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    ))}
+  </div>
+</div>
     </section>
+    
   )
 }

@@ -88,6 +88,11 @@ const siteConfig = {
     { src: '/gallary/27.jpeg', alt: '' },
     { src: '/gallary/28.jpeg', alt: '' },
   ],
+  vedios: [
+    { src: '/gallary/vedios/semiSenior.mp4', alt: '' },
+    { src: '/gallary/vedios/barbeque.mp4', alt: '' },
+    { src: '/gallary/vedios/funDay.mp4', alt: '' },
+  ],
 
   social: {
     instagram: '#',

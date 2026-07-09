@@ -101,3 +101,23 @@ body {
   text-transform: uppercase;
   color: #d4af37;
 }
+.font-big {
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.w-phone{
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .w-phone {
+    width:40%;
+    height: 100%;
+    flex: 0 0 calc(50% - 0.5rem);
+  }
+}
