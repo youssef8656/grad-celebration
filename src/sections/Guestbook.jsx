@@ -51,7 +51,6 @@ export default function Guestbook() {
   loadEntries();
 }, []);
 
-
 const handleSubmit = async (e) => {
   e.preventDefault();
 
@@ -62,8 +61,6 @@ const handleSubmit = async (e) => {
     setError("Please fill in all fields.");
     return;
   }
-
-  setLoading(true);
 
   try {
     const response = await fetch(API_URL, {
@@ -78,32 +75,39 @@ const handleSubmit = async (e) => {
       }),
     });
 
+    // Make sure the POST request succeeded
+    if (!response.ok) {
+      throw new Error("Failed to save message");
+    }
+
     await response.text();
 
-    // Optional: wait a second before fetching
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    // Show success immediately
+    setSuccess("Guestbook signed successfully! 🎉");
+    setError("");
 
-    const res = await fetch(API_URL);
-    const data = await res.json();
-
-    setEntries(data);
-
+    // Clear the form
     setForm({
       name: "",
       to: "",
       message: "",
     });
 
-    setSuccess("Guestbook signed successfully! 🎉");
+    // Try to refresh entries, but ignore any errors
+    try {
+      const res = await fetch(API_URL);
+      const data = await res.json();
+      setEntries(data);
+    } catch (err) {
+      console.warn("Couldn't refresh guestbook:", err);
+    }
+
   } catch (err) {
     console.error(err);
-    // setError("Something went wrong.");
-    setSuccess("Guestbook signed successfully! 🎉");
-  } finally {
-    setLoading(false);
+    setSuccess("");
+    setError("Couldn't save your message.");
   }
 };
-
   // const handleSubmit = (e) => {
   //   e.preventDefault()
   //   if (!form.name.trim() || !form.message.trim()) {
