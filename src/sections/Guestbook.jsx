@@ -24,7 +24,19 @@ const NAMES = [
   'يوسف مجدي', 'يوسف نادي', 'يوستينا سعد',
 ]
 
-useEffect(() => {
+
+
+
+export default function Guestbook() {
+  // const [entries, setEntries] = useLocalStorage('guestbook-entries', [])
+  const [entries, setEntries] = useState([]);
+
+  const [form, setForm] = useState({ name: '', to: '', message: '' })
+  const [error, setError] = useState('')
+  const [success, setSuccess] = useState("");
+
+
+  useEffect(() => {
   async function loadEntries() {
     try {
       const res = await fetch(API_URL);
@@ -39,15 +51,10 @@ useEffect(() => {
 }, []);
 
 
-export default function Guestbook() {
-  // const [entries, setEntries] = useLocalStorage('guestbook-entries', [])
-  const [entries, setEntries] = useState([]);
-
-  const [form, setForm] = useState({ name: '', to: '', message: '' })
-  const [error, setError] = useState('')
-
-
 const handleSubmit = async (e) => {
+
+  setError("");
+  setSuccess("");
   e.preventDefault();
 
   if (!form.name.trim() || !form.to || !form.message.trim()) {
@@ -70,25 +77,31 @@ const handleSubmit = async (e) => {
       }),
     });
 
-    const result = await response.json();
+    // Wait for Google to save the message
+  await response.text();
 
-    if (result.success) {
-      const res = await fetch(API_URL);
-      const data = await res.json();
-      setEntries(data);
+  // Reload all entries
+  const res = await fetch(API_URL);
+  const data = await res.json();
+  setEntries(data);
 
-      setForm({
-        name: "",
-        to: "",
-        message: "",
-      });
-    } else {
-      setError(result.error || "Failed to submit.");
-    }
+  // Clear the form
+  setForm({
+    name: "",
+    to: "",
+    message: "",
+  });
+
+  // Show success
+  setError("");
+
+  // Optional success message
+  setSuccess("Guestbook signed successfully! 🎉");
   } catch (err) {
-    console.error(err);
-    setError("Something went wrong.");
-  }
+  console.error(err);
+  setSuccess("");
+  setError("Something went wrong.");
+}
 };
 
 
@@ -158,9 +171,14 @@ const handleSubmit = async (e) => {
             rows={3}
             className="mt-2 w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white/90 placeholder-white/30 focus:outline-none focus:border-gold/60 transition-colors resize-none"
           />
-        </div>
+          {error && (
+  <p className="text-sm text-rose-300">{error}</p>
+)}
 
-        {error && <p className="text-sm text-rose-300">{error}</p>}
+{success && (
+  <p className="text-sm text-emerald-400">{success}</p>
+)}
+        </div>
 
         <motion.button
           whileHover={{ scale: 1.02 }}
