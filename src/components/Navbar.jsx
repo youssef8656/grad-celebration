@@ -9,6 +9,7 @@ const LINKS = [
   { href: '#details', label: 'Details' },
   { href: '#schedule', label: 'Schedule' },
   { href: '#memories', label: 'Memories' },
+  { href: '#guestbook', label: 'Guestbook' },
 ]
 
 export default function Navbar({ musicPlaying, onToggleMusic }) {

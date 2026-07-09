@@ -1,6 +1,6 @@
 // Edit this file to personalize the entire site — every section reads from here.
 const siteConfig = {
-  name: 'ABF',
+  name: 'ABF Family',
   degree: 'B.Sciences',
   university: 'Minya University',
   gradYear: '2026',
@@ -39,11 +39,11 @@ const siteConfig = {
   ],
 
   schedule: [
-    { time: '5:00 PM', title: 'Arrival', desc: 'Welcome drinks on the terrace as the sun goes down.' },
-    { time: '7:00 PM', title: 'Dinner', desc: 'A seated dinner beneath the string lights.' },
-    { time: '8:30 PM', title: 'Speeches', desc: 'A few words — some earned, some embarrassing.' },
+    { time: '4:00 PM', title: 'Arrival', desc: 'Arrival early and take some photos.' },
+    { time: '5:00 PM', title: 'Guest Arrival', desc: 'A seated dinner beneath the string lights.' },
+    { time: '5:30 PM', title: 'begin the party', desc: 'A few words — some earned, some embarrassing.' },
     { time: '9:00 PM', title: 'Photos', desc: 'The wall of frames — bring your best angles.' },
-    { time: '9:30 PM', title: 'Celebration', desc: 'Music, dancing, and one very long overdue toast.' },
+    { time: '9:30 PM', title: 'leave', desc: 'Thanks for being there with us.' },
   ],
 
   memories: [
