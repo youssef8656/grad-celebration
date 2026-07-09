@@ -1,4 +1,4 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { PenLine, MessageCircleHeart } from 'lucide-react'
 import SectionHeader from '../components/SectionHeader.jsx'
@@ -24,7 +24,19 @@ const NAMES = [
   'يوسف مجدي', 'يوسف نادي', 'يوستينا سعد',
 ]
 
+useEffect(() => {
+  async function loadEntries() {
+    try {
+      const res = await fetch(API_URL);
+      const data = await res.json();
+      setEntries(data);
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
+  loadEntries();
+}, []);
 
 
 export default function Guestbook() {
@@ -57,20 +69,6 @@ const handleSubmit = async (e) => {
         message: form.message,
       }),
     });
-
-    useEffect(() => {
-  async function loadEntries() {
-    try {
-      const res = await fetch(API_URL);
-      const data = await res.json();
-      setEntries(data);
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
-  loadEntries();
-}, []);
 
     const result = await response.json();
 
