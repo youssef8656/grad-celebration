@@ -24,7 +24,7 @@ const siteConfig = {
     {
       year: '2023',
       title: 'First Internship',
-      desc: 'Traded lecture halls for a real desk, real deadlines, and the humbling discovery of how much there was left to learn.',
+      desc: 'Trade lecture halls for a real desk, real deadlines, and the humbling discovery of how much there was left to learn.',
     },
     {
       year: '2024',
