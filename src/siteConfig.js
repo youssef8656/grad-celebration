@@ -53,9 +53,9 @@ const siteConfig = {
 
   memories: [
     { name: 'Jordan P.', role: 'Roommate, Freshman Year', quote: 'The best part of every trip wasn’t the destination—it was being there together.' },
-    { name: 'Marcus T.', role: 'Halfway to graduation, we realized that the journey itself had already become the memory.' },
+    { name: 'Marcus T.', role:'',quote: 'Halfway to graduation, we realized that the journey itself had already become the memory.' },
     { name: 'Priya S.', role: 'Study Group', quote: 'Between lectures and long conversations on campus, we built memories that will last a lifetime.' },
-    { name: 'Elena R.', role: 'That one trip reminded us that the best way to celebrate the finish line is to enjoy the road together.' },
+    { name: 'Elena R.', role:'',quote: 'That one trip reminded us that the best way to celebrate the finish line is to enjoy the road together.' },
   ],
 
   gallery: [
