@@ -45,6 +45,9 @@ export default function Footer() {
         <p className="text-white/30 text-xs tracking-wide">
           &copy; {new Date().getFullYear()} {siteConfig.name}. Made with gratitude.
         </p>
+        <p className="text-white/30 text-xs tracking-wide">
+          By Youssef Nady
+        </p>
       </motion.div>
     </footer>
   )

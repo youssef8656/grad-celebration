@@ -1,30 +1,114 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { PenLine, MessageCircleHeart } from 'lucide-react'
 import SectionHeader from '../components/SectionHeader.jsx'
-import useLocalStorage from '../hooks/useLocalStorage.js'
+// import useLocalStorage from '../hooks/useLocalStorage.js'
+import { useEffect, useState } from 'react'
+
+
+const API_URL = "https://script.google.com/macros/s/AKfycbzqetyyomqmMjJjlAiqEBSdVtvQJFO-IOo_Qq4xzbUyHTZ-Bpmsb6fjh5IewNA5lAW1jw/exec";
+
+
+
+const NAMES = [
+  'ابانوب ملاك', 'إبرام ناصر', 'إبرام ميشيل', 'أناسيمون ناصف', 'أناسيمون يعقوب',
+  'أمير أيمن', 'انجي مجدي', 'بافلي هاني', 'بسنت ميلاد', 'جرجس أنيس', 'جرجس حنا',
+  'رامي منير', 'رامي مينا', 'ريهام جميل', 'ساندرا عبد المسيح', 'ساندي ليشع',
+  'ساره عبد الملاك', 'سالي مجدي', 'شادي هاني', 'عبدالمسيح رزق', 'عبدالمسيح روبيل',
+  'عبدالمسيح مجدى', 'فادي ذكي', 'فادية راجي', 'كيرلس جرجس', 'كيرلس غالي',
+  'كيرلس عيد', 'كيرلس عماد', 'كمال ميلاد', 'مادونا هني', 'ماجدة مجدي', 'ماري ماجد',
+  'مارتينا أشرف', 'مارتينا سامي', 'مارتينا يوسف', 'مارينا سمير', 'مارينا عفيفي',
+  'مريم ابراهيم', 'مريم عبدمريم', 'مريم عصام', 'مريان غطاس', 'مريام محروس',
+  'مينا امين', 'مينا صلاح', 'مينا عيد', 'ميرنا ماجد', 'ميرنا نادي', 'ميشيل ريمون',
+  'ميللر فايز', 'مورين محسن', 'مورين يوسف', 'مفدى يوسف', 'هبه نبيل', 'يوسف صبرى',
+  'يوسف مجدي', 'يوسف نادي', 'يوستينا سعد',
+]
+
+useEffect(() => {
+  async function loadEntries() {
+    try {
+      const res = await fetch(API_URL);
+      const data = await res.json();
+      setEntries(data);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  loadEntries();
+}, []);
+
 
 export default function Guestbook() {
-  const [entries, setEntries] = useLocalStorage('guestbook-entries', [])
-  const [form, setForm] = useState({ name: '', message: '' })
+  // const [entries, setEntries] = useLocalStorage('guestbook-entries', [])
+  const [entries, setEntries] = useState([]);
+
+  const [form, setForm] = useState({ name: '', to: '', message: '' })
   const [error, setError] = useState('')
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    if (!form.name.trim() || !form.message.trim()) {
-      setError('Please add your name and a short message.')
-      return
-    }
-    setError('')
-    const entry = {
-      id: Date.now(),
-      name: form.name.trim(),
-      message: form.message.trim(),
-      date: new Date().toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }),
-    }
-    setEntries([entry, ...entries])
-    setForm({ name: '', message: '' })
+
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (!form.name.trim() || !form.to || !form.message.trim()) {
+    setError("Please fill in all fields.");
+    return;
   }
+
+  setError("");
+
+  try {
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8",
+      },
+      body: JSON.stringify({
+        name: form.name,
+        to: form.to,
+        message: form.message,
+      }),
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      const res = await fetch(API_URL);
+      const data = await res.json();
+      setEntries(data);
+
+      setForm({
+        name: "",
+        to: "",
+        message: "",
+      });
+    } else {
+      setError(result.error || "Failed to submit.");
+    }
+  } catch (err) {
+    console.error(err);
+    setError("Something went wrong.");
+  }
+};
+
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   if (!form.name.trim() || !form.message.trim()) {
+  //     setError('Please add your name and a short message.')
+  //     return
+  //   }
+  //   setError('')
+  //   const entry = {
+  //     id: Date.now(),
+  //     name: form.name.trim(),
+  //     to: form.to,
+  //     message: form.message.trim(),
+  //     date: new Date().toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }),
+  //   }
+  //   setEntries([entry, ...entries])
+  //   setForm({ name: '', to: '', message: '' })
+  // }
 
   return (
     <section id="guestbook" className="relative py-32 px-6 max-w-3xl mx-auto">
@@ -51,6 +135,19 @@ export default function Guestbook() {
             placeholder="Your name"
             className="mt-2 w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white/90 placeholder-white/30 focus:outline-none focus:border-gold/60 transition-colors"
           />
+        </div>
+        <div>
+          <label className="text-xs tracking-[0.2em] uppercase text-white/50">To</label>
+          <select
+            value={form.to}
+            onChange={(e) => setForm({ ...form, to: e.target.value })}
+            className="mt-2 w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white/90 focus:outline-none focus:border-gold/60 transition-colors"
+          >
+            <option value="" className="bg-ink2">Select a name…</option>
+            {NAMES.map((n) => (
+              <option key={n} value={n} className="bg-ink2">{n}</option>
+            ))}
+          </select>
         </div>
         <div>
           <label className="text-xs tracking-[0.2em] uppercase text-white/50">Message</label>
@@ -100,6 +197,9 @@ export default function Guestbook() {
                   <span className="text-white/30 text-xs">{entry.date}</span>
                 </div>
                 <p className="mt-1 text-white/65 text-sm leading-relaxed">{entry.message}</p>
+                {entry.to && (
+                  <p className="mt-1 text-gold/80 text-xs">To: {entry.to}</p>
+                )}
               </div>
             </motion.div>
           ))}

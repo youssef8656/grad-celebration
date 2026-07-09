@@ -83,7 +83,7 @@ export default function App() {
             <EventDetails />
             <Schedule />
             <Memories />
-            {/* <Guestbook /> */}
+            <Guestbook />
             {/* <RSVP /> */}
             <Celebration />
           </main>
