@@ -82,16 +82,18 @@ const handleSubmit = async (e) => {
 
     await response.text();
 
-    // Show success immediately
-    setSuccess("Guestbook signed successfully! 🎉");
-    setError("");
-
-    // Clear the form
+        // Clear the form
     setForm({
       name: "",
       to: "",
       message: "",
     });
+
+    // Show success immediately
+    setSuccess("Guestbook signed successfully! 🎉");
+    setError("");
+
+
 
     // Try to refresh entries, but ignore any errors
     try {
