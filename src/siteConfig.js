@@ -87,6 +87,8 @@ const siteConfig = {
     { src: '/gallary/26.jpeg', alt: '' },
     { src: '/gallary/27.jpeg', alt: '' },
     { src: '/gallary/28.jpeg', alt: '' },
+    { src: '/gallary/29.jpeg', alt: '' },
+    { src: '/gallary/30.jpeg', alt: '' },
   ],
   vedios: [
     { src: '/gallary/vedios/semiSenior.mp4', alt: '' },
