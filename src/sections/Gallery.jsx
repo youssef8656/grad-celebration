@@ -99,13 +99,13 @@ export default function Gallery() {
     Videos
   </h3>
 
-  <div className="flex">
+  <div className="columns-1 sm:columns-2 gap-6 space-y-6">
     {vedios.map((video) => (
       <video
         key={video.src}
         controls
         poster={video.thumbnail}
-        className="w-phone rounded-2xl"
+        className="w-full rounded-2xl break-inside-avoid"
       >
         <source src={video.src} type="video/mp4" />
         Your browser does not support the video tag.

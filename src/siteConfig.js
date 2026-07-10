@@ -90,8 +90,8 @@ const siteConfig = {
   ],
   vedios: [
     { src: '/gallary/vedios/semiSenior.mp4', alt: '' },
-    { src: '/gallary/vedios/barbeque.mp4', alt: '' },
     { src: '/gallary/vedios/funDay.mp4', alt: '' },
+    { src: '/gallary/vedios/barbeque.mp4', alt: '' },
   ],
 
   social: {
