@@ -4,7 +4,7 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import SectionHeader from '../components/SectionHeader.jsx'
 import siteConfig from '../siteConfig.js'
 
-export default function Gallery() {
+export default function Gallery({ onVideoPlay, onVideoStopped }) {
   const [activeIndex, setActiveIndex] = useState(null)
   const images = siteConfig.gallery
   const vedios = siteConfig.vedios
@@ -106,6 +106,9 @@ export default function Gallery() {
         controls
         poster={video.thumbnail}
         className="w-full rounded-2xl break-inside-avoid"
+        onPlay={onVideoPlay}
+        onPause={onVideoStopped}
+        onEnded={onVideoStopped}
       >
         <source src={video.src} type="video/mp4" />
         Your browser does not support the video tag.

@@ -21,6 +21,8 @@ export default function App() {
   const [introDone, setIntroDone] = useState(false)
   const [musicPlaying, setMusicPlaying] = useState(false)
   const audioRef = useRef(null)
+  const playingVideosRef = useRef(0)
+  const wasPlayingBeforeVideo = useRef(false)
 
   // Lock scrolling while the video intro is the only thing on screen.
   useEffect(() => {
@@ -52,6 +54,25 @@ export default function App() {
         .catch(() => {})
     }
   }
+  const handleVideoPlay = () => {
+  if (playingVideosRef.current === 0 && musicPlaying) {
+    wasPlayingBeforeVideo.current = true
+    audioRef.current?.pause()
+    setMusicPlaying(false)
+  }
+  playingVideosRef.current += 1
+}
+
+const handleVideoStopped = () => {
+  playingVideosRef.current = Math.max(0, playingVideosRef.current - 1)
+  if (playingVideosRef.current === 0 && wasPlayingBeforeVideo.current) {
+    wasPlayingBeforeVideo.current = false
+    audioRef.current
+      ?.play()
+      .then(() => setMusicPlaying(true))
+      .catch(() => {})
+  }
+}
 
   return (
     <>
@@ -79,7 +100,8 @@ export default function App() {
           <main className="relative">
             <Hero />
             <Journey />
-            <Gallery />
+            {/* <Gallery /> */}
+            <Gallery onVideoPlay={handleVideoPlay} onVideoStopped={handleVideoStopped} />
             <EventDetails />
             <Schedule />
             <Memories />
