@@ -91,9 +91,9 @@ const siteConfig = {
     { src: '/gallary/30.jpeg', alt: '' },
   ],
   vedios: [
-    { src: '/gallary/vedios/semiSenior.mp4', alt: '' },
-    { src: '/gallary/vedios/funDay.mp4', alt: '' },
-    { src: '/gallary/vedios/barbeque.mp4', alt: '' },
+    { src: '/gallary/vedios/semiSenior.mp4', thumbnail: '/gallary/vedios/semiSenior.jpeg' },
+    { src: '/gallary/vedios/funDay.mp4', thumbnail: '/gallary/vedios/funDay.jpeg' },
+    { src: '/gallary/vedios/barbeque.mp4', thumbnail: '/gallary/vedios/barbrque.png' },
   ],
 
   social: {
