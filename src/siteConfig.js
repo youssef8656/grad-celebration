@@ -44,11 +44,11 @@ const siteConfig = {
   ],
 
   schedule: [
-    { time: '4:00 PM', title: 'Arrival', desc: 'Arrival early and take some photos.' },
-    { time: '5:00 PM', title: 'Guest Arrival', desc: 'A seated dinner beneath the string lights.' },
-    { time: '5:30 PM', title: 'begin the party', desc: 'A few words — some earned, some embarrassing.' },
+    { time: '4:00 PM', title: 'Open Doors', desc: 'Arrival early and take some photos.' },
+    { time: '5:00 PM', title: 'Guest Arrival', desc: 'Get ready for the celebration.' },
+    { time: '5:30 PM', title: 'Event Start', desc: 'A few words — some earned, some embarrassing.' },
     { time: '9:30 PM', title: 'Photos', desc: 'The wall of frames — bring your best angles.' },
-    { time: '10:00 PM', title: 'leave', desc: 'Thanks for being there with us.' },
+    { time: '10:00 PM', title: 'Door Close', desc: 'Thanks for being there with us.' },
   ],
 
   memories: [
