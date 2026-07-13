@@ -7,7 +7,7 @@ const siteConfig = {
 
   event: {
     date: '2026-07-24T17:00:00',
-    dateLabel: 'Friday, July 24nd, 2026',
+    dateLabel: 'Friday, July 24th, 2026',
     time: '4:00 PM — Reception · 5:00 PM — Begining',
     venue: 'El-Minya Government Hall',
     address: '',
@@ -45,7 +45,7 @@ const siteConfig = {
 
   schedule: [
     { time: '4:00 PM', title: 'Open Doors', desc: 'Arrival early and take some photos.' },
-    { time: '5:00 PM', title: 'Guest Arrival', desc: 'Get ready for the celebration.' },
+    { time: '5:00 PM', title: 'Guest Arrival', desc: 'Take a site, And get ready for the celebration.' },
     { time: '5:30 PM', title: 'Event Start', desc: 'A few words — some earned, some embarrassing.' },
     { time: '9:30 PM', title: 'Photos', desc: 'The wall of frames — bring your best angles.' },
     { time: '10:00 PM', title: 'Door Close', desc: 'Thanks for being there with us.' },
