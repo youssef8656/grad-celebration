@@ -191,7 +191,7 @@ const handleSubmit = async (e) => {
         </motion.button>
       </motion.form>
 
-      <div className="mt-10 space-y-4">
+      {/* <div className="mt-10 space-y-4">
         <AnimatePresence initial={false}>
           {entries.length === 0 && (
             <p className="text-center text-white/40 text-sm">
@@ -222,7 +222,7 @@ const handleSubmit = async (e) => {
             </motion.div>
           ))}
         </AnimatePresence>
-      </div>
+      </div> */}
     </section>
   )
 }

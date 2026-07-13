@@ -94,6 +94,7 @@ const siteConfig = {
     { src: '/gallary/vedios/semiSenior.mp4', thumbnail: '/gallary/vedios/semiSenior.jpeg' },
     { src: '/gallary/vedios/funDay.mp4', thumbnail: '/gallary/vedios/funDay.jpeg' },
     { src: '/gallary/vedios/barbeque.mp4', thumbnail: '/gallary/vedios/barbrque.png' },
+    { src: '/gallary/vedios/LastTerm.mp4', thumbnail: '/gallary/vedios/LastTerm.png' },
   ],
 
   social: {
