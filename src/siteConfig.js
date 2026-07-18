@@ -101,6 +101,7 @@ const siteConfig = {
     instagram: '#',
     x: '#',
     linkedin: '#',
+    portfolio: '#',
   },
 }
 

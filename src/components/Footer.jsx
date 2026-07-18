@@ -46,7 +46,13 @@ export default function Footer() {
           &copy; {new Date().getFullYear()} {siteConfig.name}. Made with gratitude.
         </p>
         <p className="text-white/30 text-xs tracking-wide gold-text">
-          By Youssef Nady
+          <a
+            href={siteConfig.social.portfolio}
+            className="hover:text-gold transition-colors"
+            aria-label="Portfolio"
+          >
+            By Youssef Nady
+          </a>
         </p>
       </motion.div>
     </footer>
