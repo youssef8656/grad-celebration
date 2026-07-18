@@ -101,7 +101,7 @@ const siteConfig = {
     instagram: '#',
     x: '#',
     linkedin: '#',
-    portfolio: '#',
+    portfolio: 'https://www.linkedin.com/in/youssef-nady-92664226b/',
   },
 }
 
