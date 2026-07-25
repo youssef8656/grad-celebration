@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
-function getTimeLeft(target) {
-  const diff = Math.max(0, new Date(target).getTime() - Date.now())
+function getTimeDiff(target, mode) {
+  const now = Date.now()
+  const targetTime = new Date(target).getTime()
+  const diff = mode === 'up' ? Math.max(0, now - targetTime) : Math.max(0, targetTime - now)
   return {
     days: Math.floor(diff / (1000 * 60 * 60 * 24)),
     hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
@@ -11,13 +13,13 @@ function getTimeLeft(target) {
   }
 }
 
-export default function Countdown({ target }) {
-  const [time, setTime] = useState(() => getTimeLeft(target))
+export default function Countdown({ target, mode = 'down' }) {
+  const [time, setTime] = useState(() => getTimeDiff(target, mode))
 
   useEffect(() => {
-    const id = setInterval(() => setTime(getTimeLeft(target)), 1000)
+    const id = setInterval(() => setTime(getTimeDiff(target, mode)), 1000)
     return () => clearInterval(id)
-  }, [target])
+  }, [target, mode])
 
   const units = [
     { label: 'Days', value: time.days },

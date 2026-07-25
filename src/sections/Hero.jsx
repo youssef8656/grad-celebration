@@ -116,7 +116,7 @@ export default function Hero() {
         transition={{ delay: 1.2, duration: 0.8 }}
         className="mt-10"
       >
-        <Countdown target={siteConfig.event.date} />
+        <Countdown target={siteConfig.event.endDate} mode="up" />
       </motion.div>
 
       {/* <motion.button

@@ -7,6 +7,7 @@ const siteConfig = {
 
   event: {
     date: '2026-07-24T17:00:00',
+    endDate: '2026-08-22T23:30:00',
     dateLabel: 'Friday, July 24th, 2026',
     time: '4:00 PM — Reception · 5:00 PM — Begining',
     venue: 'El-Minya Government Hall',
