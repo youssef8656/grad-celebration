@@ -95,7 +95,7 @@ const siteConfig = {
     { src: '/gallary/vedios/funDay.mp4', thumbnail: '/gallary/vedios/funDay.jpeg' },
     { src: '/gallary/vedios/barbeque.mp4', thumbnail: '/gallary/vedios/barbrque.png' },
     { src: '/gallary/vedios/LastTerm.mp4', thumbnail: '/gallary/vedios/LastTerm.png' },
-    { src: 'https://drive.google.com/uc?id=1qMrATzdcYASRmStskpkTN8b1WKZVuyO2', thumbnail: '/gallary/vedios/LastTerm.png' },
+    { src: 'https://drive.google.com/uc?export=download&id=1qMrATzdcYASRmStskpkTN8b1WKZVuyO2', thumbnail: '/gallary/vedios/LastTerm.png' },
     { src: 'https://drive.google.com/uc?id=1axx444c6ieFixyUYounn8njBQhDoYJ29', thumbnail: '/gallary/vedios/LastTerm.png' },
   ],
 
