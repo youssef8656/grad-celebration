@@ -100,20 +100,33 @@ export default function Gallery({ onVideoPlay, onVideoStopped }) {
   </h3>
 
   <div className="columns-1 sm:columns-2 gap-6 space-y-6">
-    {vedios.map((video) => (
-      <video
-        key={video.src}
-        controls
-        poster={video.thumbnail}
-        className="w-full rounded-2xl break-inside-avoid"
-        onPlay={onVideoPlay}
-        onPause={onVideoStopped}
-        onEnded={onVideoStopped}
-      >
-        <source src={video.src} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    ))}
+    {vedios.map((video) => {
+  const isDrive = video.src.includes('drive.google.com')
+
+  return isDrive ? (
+    <iframe
+      key={video.src}
+      src={video.src}
+      className="w-full aspect-video rounded-2xl break-inside-avoid"
+      allow="autoplay"
+      allowFullScreen
+    />
+  ) : (
+    <video
+      key={video.src}
+      controls
+      preload="metadata"
+      poster={video.thumbnail}
+      className="w-full rounded-2xl break-inside-avoid"
+      onPlay={onVideoPlay}
+      onPause={onVideoStopped}
+      onEnded={onVideoStopped}
+    >
+      <source src={video.src} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  )
+})}
   </div>
 </div>
     </section>
